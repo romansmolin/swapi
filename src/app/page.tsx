@@ -1,14 +1,5 @@
-import Image from "next/image";
+import Home from "@/views/Home/home";
 
-export default function Home() {
-  return (
-    <>
-  <div className="w-12 h-12 bg-red-600"></div>
-  <div className="w-12 h-12 bg-red-600"></div>
-  <div className="w-12 h-12 bg-red-600"></div>
-  <div className="w-12 h-12 bg-red-600"></div>
-  <div className="w-12 h-12 bg-red-600"></div>
-  <div className="w-12 h-12 bg-red-600"></div>
-    </>
-  );
+export default function HomePage() {
+	return <Home />
 }

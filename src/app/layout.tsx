@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header, MainLayout } from "@/components";
 import { cn } from "@/lib/cn";
+import { ApolloWrapper } from "@/components/providers/apollo-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,10 +19,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={cn('flex flex-col min-h-screen', inter.className)}>
-                <Header />
-                <MainLayout>
-                    {children}
-                </MainLayout>
+                <ApolloWrapper>
+                    <Header />
+                    <MainLayout>
+                        {children}
+                    </MainLayout>
+                </ApolloWrapper>
             </body>
         </html>
     );

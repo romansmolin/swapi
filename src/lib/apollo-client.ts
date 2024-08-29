@@ -1,7 +1,4 @@
-
-
-import { onError } from '@apollo/client/link/error';
-import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
+import { ApolloClient, DocumentNode, HttpLink, InMemoryCache } from "@apollo/client";
 import { registerApolloClient } from "@apollo/experimental-nextjs-app-support/rsc";
 
 export const { getClient } = registerApolloClient(() => {
@@ -9,12 +6,11 @@ export const { getClient } = registerApolloClient(() => {
         cache: new InMemoryCache(),
         link: new HttpLink({
             uri: "https://swapi-graphql.netlify.app/.netlify/functions/index",
-            // uri: 'http://localhost:1337/graphql',
         }),
     });
 });
 
-export const getServerQuery = async (schema: any, variables: any) => {
+export const getServerQuery = async <TData = any>(schema: DocumentNode, variables: {[key: string]: any}): Promise<TData> => {
     const query = schema
     const { data } = await getClient().query({
 		query,

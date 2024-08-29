@@ -1,30 +1,22 @@
 import React from 'react'
 import HeroSection from './blocks/hero-section'
-import { gql } from '@apollo/client';
 import { getServerQuery } from '@/lib/apollo-client';
+import { GET_ALL_CHARACTERS } from '@/shared/schemas/characters';
+import Grid from '@/components/ui/Grid/Grid';
+import CharacterCard from '@/components/CharacterCard/CharacterCard';
 
-const ALL_PEOPLE = gql`
-query AllPeople($first: Int, $last: Int) {
-	allPeople(first: $first, last: $last) {
-		people {
-		name
-		skinColor
-		homeworld {
-			name
-		}
-		}
-	}
-}
-`;
 
 const Home = async () => {
+	const { allPeople } = await getServerQuery<AllPeopleI>(GET_ALL_CHARACTERS, { first: 8 })
 
-const { data } = await getServerQuery(ALL_PEOPLE, { first: 8 })
-
-console.log('data: ', data)
   return (
     <>
       <HeroSection />
+      <Grid>
+        {allPeople.people.map(character => (
+          <CharacterCard key={character.name}/>
+        ))}
+      </Grid>
     </>
   )
 }

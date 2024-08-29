@@ -8,7 +8,7 @@ const HeroSection: React.FC = () => {
                 <div className="max-w-xl text-center space-y-5">
                     <h1 className="text-3xl font-extrabold sm:text-5xl">
                         Discover the verse of.
-                        <strong className="font-extrabold bg-gradient-to-r from-blue-800 to-indigo-900 bg-clip-text text-transparent sm:block">
+                        <strong className="font-extrabold bg-gradient-to-r from-primary-600 to-indigo-900 bg-clip-text text-transparent sm:block">
                             Star Wars.
                         </strong>
                     </h1>

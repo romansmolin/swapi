@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header, MainLayout } from "@/components";
 import { cn } from "@/lib/cn";
 import { ApolloWrapper } from "@/components/providers/apollo-provider";
+import StoreProvider from "@/components/providers/store-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,10 +21,12 @@ export default function RootLayout({
         <html lang="en">
             <body className={cn('flex flex-col min-h-screen', inter.className)}>
                 <ApolloWrapper>
-                    <Header />
-                    <MainLayout>
-                        {children}
-                    </MainLayout>
+                    <StoreProvider>
+                        <Header />
+                        <MainLayout>
+                            {children}
+                        </MainLayout>
+                    </StoreProvider>
                 </ApolloWrapper>
             </body>
         </html>

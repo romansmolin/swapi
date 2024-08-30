@@ -4,37 +4,33 @@ import React, { useEffect, useState } from 'react'
 import { Search } from 'lucide-react'
 import { Button } from '../ui'
 import useDebounce from '@/hooks/useDebounce'
+import { useDispatch } from 'react-redux'
+import { setList, findCharacterByName } from '@/store/slices/searchSlice'
 
 const GlobalSearch: React.FC<AllPeopleI> = ({ allPeople }) => {
     const [target, setTarget] = useState<string>('')
-    const [searchQuery, setSearchQury] = useState<string>('')
     const debouncedSearchQuery = useDebounce(target, 300)
+    const dispatch = useDispatch()
 
     const { people } = allPeople
 
-    const findCharacterByName = (name: string) => {
-        const characterList =  people.filter(character => 
-            character.name.toLowerCase().includes(name.toLowerCase())
-        );
+    useEffect(() => {
+        dispatch(setList(people))
+    }, [people])
 
-        console.log('Here you are: ', characterList)
-    }
 
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { value } = e.target
         setTarget(value)
     }
 
-    useEffect(() => {
-        setSearchQury(debouncedSearchQuery)
-    }, [debouncedSearchQuery])
-
-    useEffect(() => {
-        console.log(searchQuery)
-    }, [searchQuery])
+    const findCharacter = (e: React.MouseEvent) => {
+        e.preventDefault()
+        dispatch(findCharacterByName(debouncedSearchQuery))
+    }
 
     return (
-        <div className="max-w-md">
+        <form className="max-w-md">
             <label htmlFor="default-search" className="mb-2 text-sm font-medium sr-only">Search</label>
             <div className="relative">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -49,15 +45,9 @@ const GlobalSearch: React.FC<AllPeopleI> = ({ allPeople }) => {
                     value={target}
                     onChange={(e) => handleInput(e)}
                 />
-                <Button 
-                    className="absolute" 
-                    type="button"
-                    onClick={() => findCharacterByName(searchQuery)}
-                >
-                    Search
-                </Button>
+                <Button className="absolute" type="submit" onClick={(e) => findCharacter(e)}>Search</Button>
             </div>
-        </div>
+        </form>
     )
 }
 

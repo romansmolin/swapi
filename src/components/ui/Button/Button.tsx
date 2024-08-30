@@ -3,12 +3,13 @@ import Link from 'next/link'
 import React, { ReactNode } from 'react'
 import { UrlObject } from 'url'
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string,
     children: ReactNode | string
-    onClick?: () => void
+    // onClick?: () => void
     isLink?: boolean
     href?: UrlObject
+    // type?: 'submit' | 'reset' | 'button' | undefined
 }
 
 const Button: React.FC<ButtonProps> = ({ className, children, isLink, href, ...rest }) => {

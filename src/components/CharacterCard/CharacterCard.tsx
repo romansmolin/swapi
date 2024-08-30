@@ -1,7 +1,14 @@
 import React from 'react'
 import { Button } from '../ui'
 
-const CharacterCard: React.FC<Character> = ({ name, gender, height, homeworld, id }) => {
+interface CharacterCardProps {
+    name: string;
+    height: number;
+    gender: string;
+    homeworld: Homeworld;
+    id: string;
+  }
+const CharacterCard: React.FC<CharacterCardProps> = ({ name, gender, height, homeworld, id }) => {
     return (
         <div className="rounded-lg shadow-lg text-center flex flex-col justify-between h-full">
             <div className="p-6 space-y-5 flex-grow">

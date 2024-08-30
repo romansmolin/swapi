@@ -18,11 +18,11 @@ const HeroSection: React.FC = () => {
                     </p>
 
 
-                    <div className="flex justify-center">
+                    {/* <div className="flex justify-center">
                         <div className="w-full max-w-md">
                             <GlobalSearch />
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>

@@ -15,3 +15,25 @@ export const GET_ALL_CHARACTERS = gql`
     }
   }
 `;
+
+export const GET_CHARACTER_BY_ID = gql`
+  query People($personId: ID) {
+    person(id: $personId) {
+      name
+      birthYear
+      species {
+        name
+      }
+      homeworld {
+        name
+        population
+        climates
+      }
+      filmConnection {
+        films {
+          title
+        }
+      }
+    }
+  }
+`;

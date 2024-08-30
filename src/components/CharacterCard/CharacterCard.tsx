@@ -25,13 +25,14 @@ const CharacterCard: React.FC<Character> = ({ name, gender, height, homeworld, i
                     </p>
                 </div>
 
-                <Button type='button'>
-                    <Link href={{
+                <Button 
+                    isLink
+                    href={{
                         pathname: '/character-details',
-                        query: { id },
-                    }}>
+                        query: { id: id },
+                    }}
+                 >
                         Read now
-                    </Link>
                 </Button>
             </div>
         </div>

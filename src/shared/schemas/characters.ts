@@ -5,7 +5,8 @@ export const GET_ALL_CHARACTERS = gql`
     allPeople(first: $first, last: $last) {
       people {
         name
-        skinColor
+        gender
+        height
         homeworld {
           name
         }

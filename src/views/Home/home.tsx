@@ -7,18 +7,24 @@ import CharacterCard from '@/components/CharacterCard/CharacterCard';
 
 
 const Home = async () => {
-	const { allPeople } = await getServerQuery<AllPeopleI>(GET_ALL_CHARACTERS, { first: 8 })
-
-  return (
-    <>
-      <HeroSection />
-      <Grid>
-        {allPeople.people.map(character => (
-          <CharacterCard key={character.name}/>
-        ))}
-      </Grid>
-    </>
-  )
+	const { allPeople } = await getServerQuery<AllPeopleI>(GET_ALL_CHARACTERS)
+	console.log(allPeople.people[0].homeworld)
+	return (
+		<>
+			<HeroSection />
+			<Grid>
+				{allPeople.people.map(character => (
+					<CharacterCard 
+						key={character.name} 
+						homeworld={character.homeworld}
+						name={character.name}
+						gender={character.gender}
+						height={character.height}
+					/>
+				))}
+			</Grid>
+		</>
+	)
 }
 
 export default Home

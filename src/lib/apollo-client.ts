@@ -10,7 +10,7 @@ export const { getClient } = registerApolloClient(() => {
     });
 });
 
-export const getServerQuery = async <TData = any>(schema: DocumentNode, variables: {[key: string]: any}): Promise<TData> => {
+export const getServerQuery = async <TData = any>(schema: DocumentNode, variables?: {[key: string]: any}): Promise<TData> => {
     const query = schema
     const { data } = await getClient().query({
 		query,

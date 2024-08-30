@@ -6,7 +6,8 @@ interface AllPeopleI {
 
 type Character = {
     name: string;
-    skinColor: string;
+    height: number;
+    gender: string;
     homeworld: Homeworld;
 }
 

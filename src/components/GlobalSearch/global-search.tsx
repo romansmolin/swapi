@@ -26,7 +26,9 @@ const GlobalSearch: React.FC<AllPeopleI> = ({ allPeople }) => {
 
     const findCharacter = (e: React.MouseEvent) => {
         e.preventDefault()
-        dispatch(findCharacterByName(debouncedSearchQuery))
+        if (debouncedSearchQuery) {
+            dispatch(findCharacterByName(debouncedSearchQuery))
+        }
     }
 
     return (

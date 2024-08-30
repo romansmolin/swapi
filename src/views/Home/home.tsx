@@ -8,7 +8,6 @@ import CharacterCard from '@/components/CharacterCard/CharacterCard';
 
 const Home = async () => {
 	const { allPeople } = await getServerQuery<AllPeopleI>(GET_ALL_CHARACTERS)
-	console.log(allPeople.people[0].homeworld)
 	return (
 		<>
 			<HeroSection />
@@ -20,6 +19,7 @@ const Home = async () => {
 						name={character.name}
 						gender={character.gender}
 						height={character.height}
+						id={character.id}
 					/>
 				))}
 			</Grid>

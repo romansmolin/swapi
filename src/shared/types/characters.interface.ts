@@ -9,6 +9,7 @@ type Character = {
     height: number;
     gender: string;
     homeworld: Homeworld;
+    id: string;
 }
 
 type Homeworld = {

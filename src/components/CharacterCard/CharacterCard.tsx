@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
+import { Button } from '../ui'
 
-const CharacterCard: React.FC<Character> = ({ name, gender, height, homeworld }) => {
+const CharacterCard: React.FC<Character> = ({ name, gender, height, homeworld, id }) => {
     return (
         <div className="block rounded-lg shadow-lg text-center">
             <div className="p-6 space-y-5">
@@ -24,11 +25,14 @@ const CharacterCard: React.FC<Character> = ({ name, gender, height, homeworld })
                     </p>
                 </div>
 
-                <Link
-                    href="#"
-                    className="inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out bg-primary-700 hover:bg-primary-800">
-                    Read now
-                </Link>
+                <Button type='button'>
+                    <Link href={{
+                        pathname: '/character-details',
+                        query: { id },
+                    }}>
+                        Read now
+                    </Link>
+                </Button>
             </div>
         </div>
 

@@ -4,13 +4,13 @@ import React, { useEffect, useState } from 'react'
 import { Search } from 'lucide-react'
 import { Button } from '../ui'
 import useDebounce from '@/hooks/useDebounce'
-import { useDispatch } from 'react-redux'
 import { setList, findCharacterByName } from '@/store/slices/searchSlice'
+import { useAppDispatch } from '@/hooks/redux'
 
 const GlobalSearch: React.FC<AllPeopleI> = ({ allPeople }) => {
     const [target, setTarget] = useState<string>('')
     const debouncedSearchQuery = useDebounce(target, 300)
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const { people } = allPeople
 

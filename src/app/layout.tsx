@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Header, MainLayout } from "@/components";
+import { Header, MainLayout, SearchResultModal } from "@/components";
 import { cn } from "@/lib/cn";
 import { ApolloWrapper } from "@/components/providers/apollo-provider";
 import StoreProvider from "@/components/providers/store-provider";
@@ -26,6 +26,7 @@ export default function RootLayout({
                         <MainLayout>
                             {children}
                         </MainLayout>
+                        <SearchResultModal />
                     </StoreProvider>
                 </ApolloWrapper>
             </body>

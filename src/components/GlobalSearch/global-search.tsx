@@ -19,7 +19,7 @@ const GlobalSearch: React.FC<AllPeopleI> = ({ allPeople }) => {
     }, [people])
 
 
-    const handleInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target
         setTarget(value)
     }

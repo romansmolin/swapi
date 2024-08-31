@@ -30,6 +30,6 @@ const searchSlice = createSlice({
 
 export const { setList, findCharacterByName } = searchSlice.actions;
 
-export const selectSearchResults = (state: RootState): Character[] => state.search.searchResults;
+export const selectSearchResults = (state: RootState) => state.search.searchResults;
 
 export default searchSlice.reducer;

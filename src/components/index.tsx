@@ -1,3 +1,4 @@
+import CharacterCard from "./CharacterCard/CharacterCard";
 import GlobalSearch from "./GlobalSearch/global-search";
 import Header from "./Header/header";
 import SearchResultModal from "./SearchResultModal/SearchResultModal";
@@ -7,5 +8,6 @@ export  {
     Header,
     MainLayout,
     GlobalSearch,
-    SearchResultModal
+    SearchResultModal,
+    CharacterCard
 }

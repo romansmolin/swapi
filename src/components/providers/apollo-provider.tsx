@@ -14,7 +14,7 @@ import {
 
 function makeClient() {
   const httpLink = new HttpLink({
-      uri: "https://swapi-graphql.netlify.app/.netlify/functions/index",
+      uri: process.env.API_URL,
   });
 
   return new NextSSRApolloClient({
